@@ -14,7 +14,7 @@ module.exports = {
   username: process.env.DATABASE_USERNAME || 'postgres',
   password: process.env.DATABASE_PASSWORD || 'secret',
   database: database[process.env.NODE_ENV || 'development'],
-  entities: ['src/**/*.entity.ts'],
+  entities: ['dist/**/*.entity{.ts,.js}'],
   synchronize: false,
   logging: true,
   migrationsTableName: 'migrations',
