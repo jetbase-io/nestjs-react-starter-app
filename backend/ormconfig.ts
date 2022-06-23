@@ -14,14 +14,14 @@ module.exports = {
   username: process.env.DATABASE_USERNAME || 'postgres',
   password: process.env.DATABASE_PASSWORD || 'secret',
   database: database[process.env.NODE_ENV || 'development'],
-  entities: ['src/**/*.entity.ts'],
+  entities: ['dist/**/*.entity{.ts,.js}'],
   synchronize: false,
   logging: true,
   migrationsTableName: 'migrations',
-  migrations: [`src/modules/db/${migrationDir}/*.ts`],
+  migrations: [`dist/src/modules/db/${migrationDir}/*{.ts,.js}`],
   cli: {
     entitiesDir: 'src/*/',
-    migrationsDir: `src/modules/db/${migrationDir}`,
+    migrationsDir: __dirname + `/src/modules/db/${migrationDir}`,
   },
   ssl:
     process.env.NODE_ENV === 'production'
